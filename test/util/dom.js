@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * Pulled from http://jaketrent.com/post/testing-react-with-jsdom/.
+ */
 var jsdom = require('jsdom');
 
 // setup the simplest document possible
