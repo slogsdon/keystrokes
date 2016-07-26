@@ -13,7 +13,7 @@ suite("Keystrokes", function () {
             Object.defineProperty(navigator, "appVersion", {
                 get: function () {
                     return appVersion;
-                }
+                },
             });
         }
     };
@@ -24,18 +24,18 @@ suite("Keystrokes", function () {
 
     test("getOS", function () {
         setAppVersion("Windows");
-        assert.equal(keystrokes.getOS(), 'windows');
+        assert.equal(keystrokes.getOS(), "windows");
 
         setAppVersion("Mac OS");
-        assert.equal(keystrokes.getOS(), 'macos');
+        assert.equal(keystrokes.getOS(), "macos");
 
         setAppVersion("Linux");
-        assert.equal(keystrokes.getOS(), 'linux');
+        assert.equal(keystrokes.getOS(), "linux");
 
         setAppVersion("X11");
-        assert.equal(keystrokes.getOS(), 'unix');
+        assert.equal(keystrokes.getOS(), "unix");
 
         setAppVersion("Super Special");
-        assert.equal(keystrokes.getOS(), 'default');
+        assert.equal(keystrokes.getOS(), "default");
     });
 });
