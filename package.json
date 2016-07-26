@@ -1,0 +1,42 @@
+{
+  "name": "keystrokes",
+  "version": "1.0.0",
+  "description": "Display OS-centric keystrokes in browser",
+  "main": "dist/src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slogsdon/keystrokes.git"
+  },
+  "keywords": [
+    "browser",
+    "keystrokes",
+    "keystroke"
+  ],
+  "author": "Shane Logsdon <shane@shanelogsdon.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slogsdon/keystrokes/issues"
+  },
+  "homepage": "https://github.com/slogsdon/keystrokes#readme",
+  "scripts": {
+    "build": "tsc",
+    "build:clean": "rimraf dist",
+    "build:watch": "npm run build -- -w",
+    "develop:watch": "concurrently 'npm run build:watch' 'npm run test:watch'",
+    "prepublish": "npm run build:clean && npm run typings:install && npm run test:lint && npm run build",
+    "test": "npm run build && mocha --require test/util/dom.js --ui tdd --reporter dot dist/test/**/*.js",
+    "test:lint": "tslint --config tslint.json src/**/*.ts test/**.*.ts",
+    "test:watch": "npm run test -- -w",
+    "typings:install": "typings install"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "concurrently": "^2.2.0",
+    "jsdom": "^9.4.1",
+    "mocha": "^2.5.3",
+    "rimraf": "^2.5.3",
+    "tslint": "^3.13.0",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.1"
+  }
+}
